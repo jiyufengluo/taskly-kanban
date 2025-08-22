@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly - Project Management Platform</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://hpi-hub.tos-cn-beijing.volces.com/static/unknown-horizons-natural-resources-mines-icons/025.png" type="image/png">
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f7fafc;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 100vh;
+      }
+      
+      #app {
+        height: 100%;
+      }
+      
+      .loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-in-out;
+      }
+      
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(59, 130, 246, 0.2);
+        border-radius: 50%;
+        border-top: 4px solid #3b82f6;
+        animation: spin 1s linear infinite;
+      }
+      
+      .loading-text {
+        margin-top: 20px;
+        color: #3b82f6;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .fade-out {
+        opacity: 0;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-k9zFJmeZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CHpVIefx.css">
+  </head>
+  <body>
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading Taskly...</div>
+    </div>
+    
+    <!-- Vue App -->
+    <div id="app"></div>
+    
+    <!-- Vue Entry Script -->
+    
+    <!-- Loading Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+          const loadingOverlay = document.getElementById('loading-overlay');
+          if (loadingOverlay) {
+            loadingOverlay.classList.add('fade-out');
+            setTimeout(() => {
+              loadingOverlay.style.display = 'none';
+            }, 500);
+          }
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
